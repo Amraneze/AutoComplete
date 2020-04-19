@@ -6,6 +6,14 @@ import scala.annotation.tailrec
 
 case class ArgsParser(args: Seq[String]) {
 
+  /**
+    * A function that will parse arguments in the App and returns a
+    * Map of symbols with their values. If an argument was given
+    * it will print the usage and throw an RuntimeException
+    * @param argsList the list of arguments that was given
+    * @return A map of field with their values
+    */
+  @throws[RuntimeException]
   def parseArgs(argsList: Seq[String]): ArgMap = {
     @tailrec
     def parseArgs(argsMap: ArgMap, argumentsList: Seq[String]): ArgMap = {
