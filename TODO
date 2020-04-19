@@ -1,0 +1,2 @@
+- Add sbt-assembly to make a fat jar so in docker won't download every time the dependencies but just add the Jar and run it with Java without Sbt.
+- Update CircleCI config to build Docker image and run it
