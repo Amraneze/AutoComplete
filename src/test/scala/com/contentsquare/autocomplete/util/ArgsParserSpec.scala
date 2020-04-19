@@ -17,7 +17,7 @@ class ArgsParserSpec extends AnyFlatSpec with Matchers {
     val argsParser = ArgsParser(argsWithFile ++ Seq("--test"))
     the[RuntimeException] thrownBy {
       argsParser.parseArgs(argsWithFile ++ Seq("test"))
-    } should have message "The argument --test is not supported yet."
+    } should have message "The argument test is not supported yet."
   }
 
   it should "parse arguments with file option" in {

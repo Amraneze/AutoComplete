@@ -35,5 +35,5 @@ case class ArgsParser(args: Seq[String]) {
 
 object ArgsParser {
   type ArgMap = Map[Symbol, Any]
-  val usage = """Usage: app --file file Or app --string string --delimiter delimiter"""
+  val usage = """Usage: app --file file --keyword keyword Or app --string string --delimiter delimiter --keyword keyword"""
 }
