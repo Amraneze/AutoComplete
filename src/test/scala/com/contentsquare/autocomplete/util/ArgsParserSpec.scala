@@ -7,10 +7,10 @@ import com.contentsquare.autocomplete.util.ArgsParser.ArgMap
 
 class ArgsParserSpec extends AnyFlatSpec with Matchers {
 
-  it should "throw a runtime exception if no arguments was provided" in {
+  it should "throw a runtime exception if no argument was provided" in {
     the[RuntimeException] thrownBy {
       ArgsParser(Seq.empty)
-    } should have message "No arguments was given to the App."
+    } should have message "No arguments were provided to the App."
   }
 
   it should "throw a runtime exception if an arguments not supported was provided" in {

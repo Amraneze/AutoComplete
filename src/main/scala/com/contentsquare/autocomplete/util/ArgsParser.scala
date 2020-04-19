@@ -29,7 +29,7 @@ case class ArgsParser(args: Seq[String]) {
   // not so it can display the usage text
   if (args.isEmpty) {
     println(usage)
-    throw new RuntimeException("No arguments was given to the App.")
+    throw new RuntimeException("No arguments were provided to the App.")
   }
 }
 
