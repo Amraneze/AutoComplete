@@ -32,7 +32,7 @@ object AutoCompleteJob {
       // App as we go through all arguments but we don't know
       case _ => throw new RuntimeException("No data was given to this App :(")
     }
-    parsedStrings.filter(_.startsWith(keyword)).sorted.take(4)
+    parsedStrings.filter(_.toLowerCase.startsWith(keyword.toLowerCase)).sorted.take(4)
   }
 
   /**
