@@ -9,6 +9,15 @@ The purpose of the challenge is to suggest four words based on a keyword.
 
 >Note: Check the [Test_DE.pdf](docs/Test_DE.pdf) for more detailed information.
 
+## Additional Questions
+* What would you change if the list of keywords was much larger (several millions) ?
+<br />
+Use Spark that can create more partitions which can benefit from caching (in memory) that will make the app run faster. And also, it can optimization of each transformation and run it in parallel. 
+
+* What would you change if the requirements were to match any portion of the keywords (for example, given the string “pro”, the program could suggest the keyword “reprobe”) ?
+<br />
+We can replace `startsWith` with `indexOf` or `contains` (which is using just `indexOf`)
+ 
 ## Getting Started
 
 ### Prerequisites
