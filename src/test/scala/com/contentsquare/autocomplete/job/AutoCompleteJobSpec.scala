@@ -63,9 +63,10 @@ class AutoCompleteJobSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "throw a file not found exception if the file does not exist" in {
-    the[FileNotFoundException] thrownBy {
+    val caught = intercept[FileNotFoundException] {
       AutoCompleteJob.autoComplete(notExistingFileArgs(keywordProg))
-    } should have message s"${nonExistingFile.replace("/", "\\")} (The system cannot find the file specified)"
+    }
+    assert(caught.getMessage.matches(s"(.*${regexForTxtFiles.findFirstIn(nonExistingFile).getOrElse("notfound.txt")}.*)"))
     // We also use this syntax for catching an exception without checking the message but
     // better to make sure that the text which was thrown is the same as the expected one
     assertThrows[FileNotFoundException] {
