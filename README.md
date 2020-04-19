@@ -1,6 +1,7 @@
 # ContentSquare Auto-complete Challenge
 
 [![codecov](https://codecov.io/gh/Amraneze/AutoComplete/branch/master/graph/badge.svg)](https://codecov.io/gh/Amraneze/AutoComplete)
+[![CircleCI](https://circleci.com/gh/Amraneze/AutoComplete.svg?style=svg)](https://circleci.com/gh/Amraneze/AutoComplete)
 
 A challenge to display my knowledge in Scala. 
 <br />
