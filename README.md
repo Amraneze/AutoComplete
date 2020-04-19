@@ -1,5 +1,7 @@
 # ContentSquare Auto-complete Challenge
 
+[![codecov](https://codecov.io/gh/Amraneze/AutoComplete/branch/master/graph/badge.svg)](https://codecov.io/gh/Amraneze/AutoComplete)
+
 A challenge to display my knowledge in Scala. 
 <br />
 The purpose of the challenge is to suggest four words based on a keyword.
