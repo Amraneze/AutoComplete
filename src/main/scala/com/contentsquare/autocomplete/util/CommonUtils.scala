@@ -1,7 +1,7 @@
 package com.contentsquare.autocomplete.util
 
 import java.io.IOException
-import scala.io.{BufferedSource, Source}
+import scala.io.Source
 
 object CommonUtils {
 
@@ -13,10 +13,18 @@ object CommonUtils {
     */
   @throws[IOException]
   def readFile(file: String): Seq[String] = {
-    val enumSource: BufferedSource = Source.fromFile(file)
-    val data                       = enumSource.getLines.filter(!_.isBlank).toSeq
-    enumSource.close
-    data
+    // In Scala 2.13 we can use just this source.getLines().filter(!_.isBlank).toSeq
+    // and we can close the stream after it without having the exception "Stream closed"
+    // I guess in Scala with version below 2.13, they are using lazy val so that's why
+    // when it's starting to get the data, the stream close itself.
+    var words: Seq[String] = Seq.empty
+    def readingFile[A <: Source](source: A)(f:A => Seq[String]): Seq[String] = try f(source) finally source.close
+    readingFile(Source.fromFile(file)) {
+      source => source.getLines().filter(!_.isBlank).foreach{
+        line => words = words :+ line
+      }
+      words
+    }
   }
 
   /**
